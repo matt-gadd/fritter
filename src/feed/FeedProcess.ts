@@ -31,3 +31,18 @@ export const addPost = createProcess('add-post', [
 		];
 	}),
 ]);
+
+export const submitPost = createProcess('fetch-feed', [
+	createCommand<any>(async ({ get, path, payload }) => {
+		const { message } = payload;
+		const url = `https://fritter-server-pddxbnoezn.now.sh/messages`;
+		const response = await fetch(url, {
+			body: JSON.stringify({ message, user: 'foo', datetime: Date.now() }),
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const json = await response.json();
+		console.log(json);
+		return [];
+	}),
+]);
