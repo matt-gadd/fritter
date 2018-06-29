@@ -9,7 +9,7 @@ const store = new Store();
 const registry = new Registry();
 registry.defineInjector('state', () => () => store);
 
-const socket = new WebSocket('wss://fritter-server-pddxbnoezn.now.sh');
+const socket = new WebSocket('wss://fritter-server.now.sh');
 socket.onmessage = ({ data }) => addPost(store)(data);
 
 const Projector = ProjectorMixin(Fritter);

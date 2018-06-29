@@ -3,6 +3,7 @@ const http = require('http');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const faker = require('faker');
 
 const port = process.env.PORT || 5001;
 const app = express();
@@ -13,18 +14,29 @@ app.use(bodyParser.json());
 
 // API
 // {
-//   username: string;
+//   user: {
+//     name: string;
+//     avatar: string;
+//   };
 //   message: string;
 //   datetime: number;
 // }
 
 const fritters = [];
+const users = [];
+for (let i = 0; i < 20; i++) {
+	users.push({
+		name: faker.internet.userName(),
+		avatar: faker.internet.avatar()
+	});
+}
 
 for (let i = 0; i < 500; i++) {
+	const userIndex = Math.floor(Math.random() * 19);
 	fritters.push({
-		message: `I am message number ${i}`,
-		datetime: 1,
-		user: `User ${i}`
+		message: faker.lorem.paragraph(),
+		datetime: Date.now(),
+		user: users[userIndex]
 	});
 }
 
@@ -50,18 +62,18 @@ wss.on('connection', (ws, req) => {
 app.get('/messages', (req, res) => {
 	const offset = req.query.offset ? parseInt(req.query.offset) : 0;
 	const size = req.query.size ? parseInt(req.query.size) : 30;
-	const frittersResponse = fritters.slice(offset, size + offset);
+	const frittersResponse = [ ...fritters ].reverse().slice(offset, size + offset);
 
 	res.json(frittersResponse);
 });
 
 app.post('/messages', (req, res) => {
 	const newFritter = req.body;
-	if (!newFritter.message || !newFritter.user || !newFritter.datetime) {
+	if (!newFritter.message || !newFritter.user) {
 		return res.sendStatus(500);
 	}
 
-	fritters.push(newFritter);
+	fritters.push({ ...newFritter, datetime: Date.now() });
 	broadcast(newFritter);
 	res.sendStatus(201);
 });

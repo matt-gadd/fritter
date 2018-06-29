@@ -12,7 +12,7 @@ export const fetchPosts = createProcess('fetch-feed', [
 	}),
 	createCommand<any>(async ({ get, path, payload }) => {
 		const { offset } = payload;
-		const url = `https://fritter-server-pddxbnoezn.now.sh/messages?offset=${offset}`;
+		const url = `https://fritter-server.now.sh/messages?offset=${offset}`;
 		const response = await fetch(`${url}`);
 		const json = await response.json();
 		const posts = get(path('feed', 'posts')) || [];
@@ -35,7 +35,7 @@ export const addPost = createProcess('add-post', [
 export const submitPost = createProcess('fetch-feed', [
 	createCommand<any>(async ({ get, path, payload }) => {
 		const { message } = payload;
-		const url = `https://fritter-server-pddxbnoezn.now.sh/messages`;
+		const url = `https://fritter-server.now.sh/messages`;
 		const response = await fetch(url, {
 			body: JSON.stringify({ message, user: 'foo', datetime: Date.now() }),
 			method: 'POST',
