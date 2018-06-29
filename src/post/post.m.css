@@ -1,10 +1,22 @@
 .root {
-	text-align: center;
-	padding: 100px 0 0 0;
+	position: relative;
+	display: block;
+	background: #fff;
+	height: 80px;
+	border: 1px solid #e6ecf0;
+	border-radius: 3px;
+	animation: fadein 1s;
 }
 
 .label {
-	padding: 20px;
-	margin: 20px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 

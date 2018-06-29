@@ -1,0 +1,62 @@
+/*!
+ * 
+ * [Dojo](https://dojo.io/)
+ * Copyright [JS Foundation](https://js.foundation/) & contributors
+ * [New BSD license](https://github.com/dojo/meta/blob/master/LICENSE)
+ * All rights reserved
+ * 
+ */
+body {
+  background: #63a088;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+.AeDG_PkH {
+	max-width: 580px;
+	margin: 40px auto;
+}
+._18R3RfJB {
+}
+
+.jOBSbUYU {
+	padding: 20px;
+	margin: 20px;
+}
+
+._2TqPguCr {
+}
+
+._2IQ7C2hR {
+	position: relative;
+	display: block;
+	background: #fff;
+	height: 80px;
+	border: 1px solid #e6ecf0;
+	border-radius: 3px;
+	-webkit-animation: _1NcHML_2 1s;
+	        animation: _1NcHML_2 1s;
+}
+
+._1NeadSFX {
+}
+
+@-webkit-keyframes _1NcHML_2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes _1NcHML_2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/*# sourceMappingURL=main.fbbc62479d8e05453cd64d7062d7ed61.bundle.css.map*/
