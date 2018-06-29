@@ -6,6 +6,8 @@
 	border: 1px solid #e6ecf0;
 	border-radius: 3px;
 	animation: fadein 1s;
+	margin: 10px;
+	padding: 10px;
 }
 
 .label {

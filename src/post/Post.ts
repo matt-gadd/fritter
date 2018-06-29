@@ -2,10 +2,15 @@ import WidgetBase from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
 import * as css from './post.m.css';
 
-export class Post extends WidgetBase {
+interface PostProperties {
+	message: string;
+}
+
+export class Post extends WidgetBase<PostProperties> {
 	protected render() {
+		const { message } = this.properties;
 		return v('div', { classes: css.root }, [
-			v('div', { classes: css.label }, ['Post'])
+			v('div', { classes: css.label }, [ message ])
 		]);
 	}
 }
