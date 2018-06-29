@@ -22,3 +22,12 @@ export const fetchPosts = createProcess('fetch-feed', [
 		];
 	}),
 ]);
+
+export const addPost = createProcess('add-post', [
+	createCommand<any>(({ get, path, payload }) => {
+		const posts = get(path('feed', 'posts')) || [];
+		return [
+			replace(path('feed', 'posts'), [ JSON.parse(payload), ...posts ])
+		];
+	}),
+]);
