@@ -2,43 +2,19 @@ const WebSocket = require('ws');
 const http = require('http');
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const faker = require('faker');
+const multer = require('multer');
+const cloudinary = require('cloudinary');
+const fs = require('fs');
 
 const port = process.env.PORT || 5001;
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
+const upload = multer({ dest: 'uploads/' });
+
 app.use(cors());
-app.use(bodyParser.json());
-
-// API
-// {
-//   user: {
-//     name: string;
-//     avatar: string;
-//   };
-//   message: string;
-//   datetime: number;
-// }
-
 const fritters = [];
-const users = [];
-for (let i = 0; i < 20; i++) {
-	users.push({
-		name: faker.internet.userName(),
-		avatar: faker.internet.avatar()
-	});
-}
-
-for (let i = 0; i < 500; i++) {
-	const userIndex = Math.floor(Math.random() * 19);
-	fritters.push({
-		message: faker.lorem.paragraph(),
-		datetime: Date.now(),
-		user: users[userIndex]
-	});
-}
 
 function broadcast(data) {
 	wss.clients.forEach((client) => {
@@ -59,23 +35,28 @@ wss.on('connection', (ws, req) => {
 	});
 });
 
+app.post('/messages/upload', upload.single('image'), (req, res) => {
+	cloudinary.uploader.upload(req.file.path, (result) => {
+		const fileParts = result.secure_url.split('upload');
+		const low_quality_url = `${fileParts[0]}upload/q_10/w_400/h_400/e_blur:300${fileParts[1]}`;
+		const high_quality_url = `${fileParts[0]}upload/q_10/w_400/h_400${fileParts[1]}`;
+		const newFritter = { low_quality_url, high_quality_url, message: req.body.message, datetime: Date.now() };
+		fritters.push(newFritter);
+		broadcast(newFritter);
+		res.sendStatus(201);
+		fs.unlink(req.file.path, (err) => {});
+	});
+});
+
 app.get('/messages', (req, res) => {
 	const offset = req.query.offset ? parseInt(req.query.offset) : 0;
 	const size = req.query.size ? parseInt(req.query.size) : 30;
 	const frittersResponse = [ ...fritters ].reverse().slice(offset, size + offset);
 
-	res.json(frittersResponse);
-});
-
-app.post('/messages', (req, res) => {
-	const newFritter = req.body;
-	if (!newFritter.message || !newFritter.user) {
-		return res.sendStatus(500);
-	}
-
-	fritters.push({ ...newFritter, datetime: Date.now() });
-	broadcast(newFritter);
-	res.sendStatus(201);
+	res.json({
+		posts: frittersResponse,
+		total: fritters.length
+	});
 });
 
 server.listen(process.env.PORT || 5001, () => {
