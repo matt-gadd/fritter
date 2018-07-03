@@ -36,6 +36,10 @@
 	font-size: 16px;
 }
 
+.image {
+	height: 60px;
+}
+
 .button {
 	float: right;
 	text-transform: capitalize;

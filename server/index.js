@@ -38,9 +38,9 @@ wss.on('connection', (ws, req) => {
 app.post('/messages/upload', upload.single('image'), (req, res) => {
 	cloudinary.uploader.upload(req.file.path, (result) => {
 		const fileParts = result.secure_url.split('upload');
-		const low_quality_url = `${fileParts[0]}upload/q_10/w_400/h_400/e_blur:300${fileParts[1]}`;
-		const high_quality_url = `${fileParts[0]}upload/q_10/w_400/h_400${fileParts[1]}`;
-		const newFritter = { low_quality_url, high_quality_url, message: req.body.message, datetime: Date.now() };
+		const low_quality_url = `${fileParts[0]}upload/q_1/w_400/h_400/e_blur:300${fileParts[1]}`;
+		const high_quality_url = `${fileParts[0]}upload/w_400/h_400${fileParts[1]}`;
+		const newFritter = { id: req.body.id, low_quality_url, high_quality_url, message: req.body.message, datetime: Date.now() };
 		fritters.push(newFritter);
 		broadcast(newFritter);
 		res.sendStatus(201);

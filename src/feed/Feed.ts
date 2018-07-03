@@ -9,12 +9,15 @@ import Post from '../post/Post';
 
 interface PostPayload {
 	message: string;
+	high_quality_url: string;
+	low_quality_url: string;
 }
 
 interface FeedProperties {
 	size: number,
 	fetch(args: { offset: number }): void;
 	postsPayload: null | PostPayload[];
+	total: number;
 	isLoading: boolean;
 }
 
@@ -28,9 +31,10 @@ export class Feed extends WidgetBase<FeedProperties> {
 		}
 	}
 
-	private _renderPlaceholders(start: number, size: number) {
+	private _renderPlaceholders(start: number, size: number, total: number) {
 		const placeholders = [];
-		for (let i = start; i < start + size; i++) {
+		const end = Math.min(total, start + size);
+		for (let i = start; i < end; i++) {
 			placeholders.push(
 				w(Post, { key: i, message: '' })
 			)
@@ -39,20 +43,21 @@ export class Feed extends WidgetBase<FeedProperties> {
 	}
 
 	protected render() {
-		let { fetch, postsPayload, isLoading, size } = this.properties;
+		debugger;
+		let { fetch, postsPayload, isLoading, size, total } = this.properties;
 		postsPayload = postsPayload || [];
 
 		const { isIntersecting } = this.meta(Intersection).get('bottom');
 
-		const posts = postsPayload.map(({ message }, key) => {
-			return w(Post, { key, message })
+		const posts = postsPayload.map(({ message, high_quality_url, low_quality_url }, key) => {
+			return w(Post, { key, message, high_quality_url, low_quality_url })
 		});
 
 		if (isLoading) {
-			posts.push(...this._renderPlaceholders(postsPayload.length, size));
+			posts.push(...this._renderPlaceholders(postsPayload.length, size, total));
 		}
 
-		if (isIntersecting && !isLoading) {
+		if (isIntersecting && !isLoading && postsPayload.length < total) {
 			fetch({ offset: postsPayload.length });
 		}
 

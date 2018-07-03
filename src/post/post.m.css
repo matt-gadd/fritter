@@ -2,7 +2,7 @@
 	position: relative;
 	display: block;
 	background: #fff;
-	height: 80px;
+	height: 360px;
 	border: 1px solid #e6ecf0;
 	border-radius: 3px;
 	animation: fadein 1s;
@@ -11,6 +11,10 @@
 }
 
 .label {
+}
+
+.image {
+	height: 360px;
 }
 
 @keyframes fadein {
