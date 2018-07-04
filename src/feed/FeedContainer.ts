@@ -1,12 +1,13 @@
 import { StoreContainer } from '@dojo/stores/StoreInjector';
 import Feed from './Feed';
-import { fetchPosts } from './FeedProcess';
+import { fetchPosts } from '../processes';
+import { State } from '../interfaces';
 
-export default StoreContainer(Feed, 'state', {
+export default StoreContainer<State>(Feed, 'state', {
 	paths: [
 		[ 'feed' ]
 	],
-	getProperties(store, properties) {
+	getProperties(store): Feed['properties'] {
 		const { get, path } = store;
 		return {
 			isLoading: get(path('feed', 'isLoading')),
