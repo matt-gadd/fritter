@@ -1,11 +1,12 @@
 import WidgetBase from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
 import * as css from './header.m.css';
+import { SubmitPostArguments, SelectImageArguments, MessageInputArguments } from '../interfaces';
 
 interface HeaderProperties {
-	post(args: { file: File, message: string }): void;
-	onSelectImage(args: { file: File }): void;
-	onMessageInput(args: { message: string }): void;
+	post(args: SubmitPostArguments): void;
+	onSelectImage(args: SelectImageArguments): void;
+	onMessageInput(args: MessageInputArguments): void;
 	imageUrl?: string;
 	message?: string;
 }

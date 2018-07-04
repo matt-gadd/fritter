@@ -6,19 +6,14 @@ import Intersection from '@dojo/widget-core/meta/Intersection';
 
 import * as css from './feed.m.css';
 import Post from '../post/Post';
-
-interface PostPayload {
-	message: string;
-	high_quality_url: string;
-	low_quality_url: string;
-}
+import { PostState, FetchPostsArguments } from '../interfaces';
 
 interface FeedProperties {
-	size: number,
-	fetch(args: { offset: number }): void;
-	postsPayload: null | PostPayload[];
-	total: number;
 	isLoading: boolean;
+	postsPayload: PostState[] | null;
+	total: number;
+	size: number;
+	fetch(args: FetchPostsArguments): void;
 }
 
 export class Feed extends WidgetBase<FeedProperties> {
@@ -43,7 +38,6 @@ export class Feed extends WidgetBase<FeedProperties> {
 	}
 
 	protected render() {
-		debugger;
 		let { fetch, postsPayload, isLoading, size, total } = this.properties;
 		postsPayload = postsPayload || [];
 
