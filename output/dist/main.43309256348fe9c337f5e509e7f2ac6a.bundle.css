@@ -25,6 +25,71 @@ body {
 	background: #2f3238;
 	z-index: 1000;
 }
+._18R3RfJB {
+	background: #63a088;
+	position: fixed;
+	top: 0px;
+	z-index: 10000;
+	margin: 0;
+	max-width: 580px;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+.jOBSbUYU {
+	color: white;
+	font-family: "Quicksand", sans-serif;
+	margin: 0px;
+}
+
+._2lLH2Db6, ._3541USjM {
+	border-radius: 0px 0px 3px 3px;
+    color: white;
+    background-color: #333741;
+    width: 278px;
+	padding: 6px;
+    cursor: pointer;
+    display: inline-block;
+	text-align: center;
+}
+
+._1aIXGiDk {
+	display: none;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.-yxvf-l1 {
+	background: white;
+	background: #fff;
+	border-radius: 3px;
+	height: 115px;
+}
+
+.L_J5aB7q {
+	margin: 10px;
+	width: 85%;
+	height: 60px;
+	border: none;
+	resize: none;
+	padding: 0;
+	line-height: 18px;
+	color: #56638a;
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+}
+
+.-MFvfAiK {
+	height: 60px;
+}
+
+._3541USjM {
+	float: right;
+}
+
 ._2TqPguCr {
 	margin: auto;
 }
@@ -133,4 +198,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.7fc5b7ec13bddd3646a786a9861e1cc4.bundle.css.map*/
+/*# sourceMappingURL=main.43309256348fe9c337f5e509e7f2ac6a.bundle.css.map*/
