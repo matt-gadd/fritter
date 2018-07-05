@@ -59,7 +59,7 @@ export class Feed extends WidgetBase<FeedProperties> {
 			{ classes: css.root },
 			[
 				...posts,
-				isLoading ? null : v('div', { key: 'bottom' })
+				v('div', { key: 'bottom', classes: css.bottom })
 			]
 		);
 	}
