@@ -9,7 +9,14 @@
 	height: 200px;
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 480px) {
+	.root {
+		width: 435px;
+		height: 300px;
+	}
+}
+
+@media (min-width: 680px) {
 	.root {
 		width: 580px;
 		height: 400px;
