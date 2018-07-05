@@ -23,6 +23,7 @@ body {
 	margin: 0;
 	width: 100%;
 	background: #2f3238;
+	z-index: 1000;
 }
 ._2TqPguCr {
 	max-width: 580px;
@@ -119,4 +120,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.f681cce41a80818162d1a7abb5204b8e.bundle.css.map*/
+/*# sourceMappingURL=main.a0fdc2ab37251c1e6c07ac804a12406c.bundle.css.map*/
