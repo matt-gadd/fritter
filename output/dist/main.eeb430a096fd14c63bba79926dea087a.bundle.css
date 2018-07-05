@@ -54,7 +54,6 @@ body {
 
 ._1hxTyNxt {
 	overflow: hidden;
-	max-height: 500px;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
@@ -74,7 +73,6 @@ body {
     position: absolute;
     top: auto;
     height: 60px;
-    width: 580px;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
@@ -95,8 +93,6 @@ body {
 }
 
 ._2zQzZTIB {
-	width: 580px;
-	height: 400px;
 	display: block;
 	margin: auto;
 }
@@ -120,4 +116,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.a0fdc2ab37251c1e6c07ac804a12406c.bundle.css.map*/
+/*# sourceMappingURL=main.eeb430a096fd14c63bba79926dea087a.bundle.css.map*/
