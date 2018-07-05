@@ -31,22 +31,24 @@ export class Header extends WidgetBase<HeaderProperties> {
 	protected render() {
 		const { post, imageUrl, message = '' } = this.properties;
 		return v('div', { classes: css.root }, [
-			v('h1', { classes: css.label }, ['fritter.']),
 			v('div', { classes: css.inputWrapper }, [
-				v('input', { type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
-				imageUrl ? v('img', { classes: css.image, src: imageUrl }) : null,
 				v('textarea', {
 					classes: css.input,
 					oninput: this._onMessageInput,
 					placeholder: 'Enter a message',
 					value: message
 				}),
-				v('button', {
+				imageUrl ? v('img', { classes: css.image, src: imageUrl }) : null,
+				v('label', { classes: css.fileLabel }, [
+					'+',
+					v('input', { classes: css.file, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
+				]),
+				v('label', {
 					classes: css.button,
 					onclick: () => {
 						post({ file: this._file, message });
 					}
-				}, ['post'])
+				}, ['Send']),
 			])
 		]);
 	}

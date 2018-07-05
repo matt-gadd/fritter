@@ -1,20 +1,57 @@
 .root {
 	position: relative;
 	display: block;
-	background: #fff;
-	height: 360px;
-	border: 1px solid #e6ecf0;
-	border-radius: 3px;
 	animation: fadein 1s;
 	margin: 10px 0px;
-	padding: 10px;
+	overflow: hidden;
+	background: #df4e4e;
 }
 
 .label {
 }
 
+.container {
+	overflow: hidden;
+	margin: auto;
+}
+
+.foo {
+	overflow: hidden;
+	max-height: 500px;
+	transition: transform 0.3s;
+	transition-delay: 0.2s;
+	background: black;
+}
+
+.fooActive {
+	transform: translate3d(0,-60px,0);
+}
+
+.figCaption {
+	text-align: center;
+    position: absolute;
+    top: auto;
+    height: 60px;
+    width: 580px;
+	transition: transform 0.3s;
+	transition-delay: 0.2s;
+}
+
+.header {
+	color: white;
+	text-transform: none;
+	line-height: 60px;
+}
+
+.figCaptionActive {
+	transform: translate3d(0,-60px,0);
+}
+
 .image {
-	height: 360px;
+	width: 580px;
+	height: 400px;
+	display: block;
+	margin: auto;
 }
 
 @keyframes fadein {

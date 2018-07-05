@@ -1,4 +1,11 @@
 .root {
-	max-width: 580px;
 	margin: 40px auto;
+}
+
+.label {
+	position: fixed;
+	top: 0;
+	color: white;
+	font-family: "Quicksand", sans-serif;
+	margin: 0;
 }
