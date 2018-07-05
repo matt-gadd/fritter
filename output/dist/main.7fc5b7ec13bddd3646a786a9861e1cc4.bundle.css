@@ -45,7 +45,14 @@ body {
 	height: 200px;
 }
 
-@media (min-width: 1281px) {
+@media (min-width: 480px) {
+	._2IQ7C2hR {
+		width: 435px;
+		height: 300px;
+	}
+}
+
+@media (min-width: 680px) {
 	._2IQ7C2hR {
 		width: 580px;
 		height: 400px;
@@ -126,4 +133,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.271f2a00cd37b44a1d5ba6fb2fbe854d.bundle.css.map*/
+/*# sourceMappingURL=main.7fc5b7ec13bddd3646a786a9861e1cc4.bundle.css.map*/
