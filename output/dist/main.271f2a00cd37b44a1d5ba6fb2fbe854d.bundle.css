@@ -26,7 +26,6 @@ body {
 	z-index: 1000;
 }
 ._2TqPguCr {
-	max-width: 580px;
 	margin: auto;
 }
 
@@ -39,9 +38,18 @@ body {
 	display: block;
 	-webkit-animation: _1NcHML_2 1s;
 	        animation: _1NcHML_2 1s;
-	margin: 10px 0px;
+	margin: 10px auto;
 	overflow: hidden;
 	background: #df4e4e;
+	width: 290px;
+	height: 200px;
+}
+
+@media (min-width: 1281px) {
+	._2IQ7C2hR {
+		width: 580px;
+		height: 400px;
+	}
 }
 
 ._1NeadSFX {
@@ -93,6 +101,8 @@ body {
 }
 
 ._2zQzZTIB {
+	height: 100%;
+	width: 100%;
 	display: block;
 	margin: auto;
 }
@@ -116,4 +126,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.eeb430a096fd14c63bba79926dea087a.bundle.css.map*/
+/*# sourceMappingURL=main.271f2a00cd37b44a1d5ba6fb2fbe854d.bundle.css.map*/
