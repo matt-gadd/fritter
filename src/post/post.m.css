@@ -2,9 +2,18 @@
 	position: relative;
 	display: block;
 	animation: fadein 1s;
-	margin: 10px 0px;
+	margin: 10px auto;
 	overflow: hidden;
 	background: #df4e4e;
+	width: 290px;
+	height: 200px;
+}
+
+@media (min-width: 1281px) {
+	.root {
+		width: 580px;
+		height: 400px;
+	}
 }
 
 .label {
@@ -46,6 +55,8 @@
 }
 
 .image {
+	height: 100%;
+	width: 100%;
 	display: block;
 	margin: auto;
 }
