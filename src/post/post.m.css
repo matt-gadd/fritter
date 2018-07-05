@@ -17,7 +17,6 @@
 
 .foo {
 	overflow: hidden;
-	max-height: 500px;
 	transition: transform 0.3s;
 	transition-delay: 0.2s;
 	background: black;
@@ -32,7 +31,6 @@
     position: absolute;
     top: auto;
     height: 60px;
-    width: 580px;
 	transition: transform 0.3s;
 	transition-delay: 0.2s;
 }
@@ -48,8 +46,6 @@
 }
 
 .image {
-	width: 580px;
-	height: 400px;
 	display: block;
 	margin: auto;
 }
