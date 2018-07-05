@@ -1,12 +1,12 @@
 .root {
 	position: relative;
 	display: block;
-	animation: fadein 1s;
+	animation: colorin 1s;
 	margin: 10px auto;
 	overflow: hidden;
-	background: #df4e4e;
 	width: 290px;
 	height: 200px;
+	background-color: #df4e4e;
 }
 
 @media (min-width: 480px) {
@@ -69,12 +69,12 @@
 	margin: auto;
 }
 
-@keyframes fadein {
+@keyframes colorin {
   from {
-    opacity: 0;
+	background-color: black;
   }
   to {
-    opacity: 1;
+	background-color: #df4e4e;
   }
 }
 

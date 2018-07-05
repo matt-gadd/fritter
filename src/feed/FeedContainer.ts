@@ -11,8 +11,8 @@ export default StoreContainer<State>(Feed, 'state', {
 		const { get, path } = store;
 		return {
 			isLoading: get(path('feed', 'isLoading')),
-			postsPayload: get(path('feed', 'posts')) || null,
-			total: get(path('feed', 'total')) || 0,
+			postsPayload: get(path('feed', 'posts')) || [],
+			total: get(path('feed', 'total')) || 5,
 			fetch: fetchPosts(store),
 			size: 30
 		}

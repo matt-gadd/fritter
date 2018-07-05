@@ -1,4 +1,4 @@
-import '@dojo/shim/browser';
+import 'intersection-observer';
 import ProjectorMixin from '@dojo/widget-core/mixins/Projector';
 import Store from '@dojo/stores/Store';
 import Fritter from './Fritter';

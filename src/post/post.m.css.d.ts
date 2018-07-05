@@ -1,5 +1,5 @@
 export const root: string;
-export const fadein: string;
+export const colorin: string;
 export const label: string;
 export const container: string;
 export const foo: string;

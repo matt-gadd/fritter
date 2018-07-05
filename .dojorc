@@ -1,5 +1,31 @@
 {
-	"build-app": {},
+	"build-app": {
+		"legacy": false,
+		"build-time-render": {
+			"root": "fritter"
+		},
+		"pwa": {
+			"serviceWorker": {
+				"clientsClaim": true,
+				"routes": [
+					{
+						"urlPattern": "https://fritter-server.now.sh",
+						"strategy": "networkFirst",
+						"expiration": {
+							"maxEntries": 25
+						}
+					},
+					{
+						"urlPattern": "https://res.cloudinary.com",
+						"strategy": "networkFirst",
+						"expiration": {
+							"maxEntries": 25
+						}
+					}
+				]
+			}
+		}
+	},
 	"test-intern": {},
 	"create-app": {}
 }
