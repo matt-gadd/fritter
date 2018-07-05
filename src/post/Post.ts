@@ -26,7 +26,7 @@ export class Post extends WidgetBase<PostProperties> {
 		return v('div', { key: 'root', classes: css.root }, [
 			v('figure', { classes: css.container }, [
 				v('div', { classes: [ css.foo, footer.isIntersecting ? css.fooActive : null ] }, [
-					v('img', { classes: [ css.image ], src }),
+					v('img', { classes: [ css.image ], alt: message, src }),
 				]),
 				v('figcaption', { key: 'footer', classes: [ css.figCaption, footer.isIntersecting ? css.figCaptionActive : null ] }, [
 					v('span', { classes: [ css.header ] }, [ message ])
