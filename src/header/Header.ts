@@ -39,16 +39,18 @@ export class Header extends WidgetBase<HeaderProperties> {
 					value: message
 				}),
 				imageUrl ? v('img', { classes: css.image, src: imageUrl }) : null,
-				v('label', { classes: css.fileLabel }, [
-					'+',
-					v('input', { classes: css.file, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
-				]),
-				v('label', {
-					classes: css.button,
-					onclick: () => {
-						post({ file: this._file, message });
-					}
-				}, ['Send']),
+				v('div', [
+					v('label', { classes: css.fileLabel }, [
+						'+',
+						v('input', { classes: css.file, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
+					]),
+					v('label', {
+						classes: css.button,
+						onclick: () => {
+							post({ file: this._file, message });
+						}
+					}, ['Send'])
+				])
 			])
 		]);
 	}
