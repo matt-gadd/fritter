@@ -5,6 +5,23 @@
 			"root": "fritter"
 		},
 		"pwa": {
+			"manifest": {
+				"name": "fritter",
+				"short_name": "fritter",
+				"description": "fritter",
+				"background_color": "#ffffff",
+				"theme_color": "#222127",
+				"icons": [
+				{
+					"src": "src/img/hn.png",
+					"sizes": [
+						128,
+					256,
+					512
+					]
+				}
+				]
+			},
 			"serviceWorker": {
 				"clientsClaim": true,
 				"routes": [
