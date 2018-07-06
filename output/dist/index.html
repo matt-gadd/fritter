@@ -143,24 +143,6 @@ body {
 }
 </style></head>
 <body>
-	<div id="fritter"></div>
-<script>
-	(function () {
-		var paths = [""];
-		var html = ["<div id=\"fritter\" class=\"AeDG_PkH\"><h1 class=\"jOBSbUYU\">fritter.</h1><div class=\"_18R3RfJB\"><div class=\"-yxvf-l1\"><label><span>Message</span><textarea class=\"L_J5aB7q\" placeholder=\"Enter a message\" maxlength=\"100\"></textarea></label><span>0/100</span><div><label class=\"_2lLH2Db6\">+<input class=\"_1aIXGiDk\" type=\"file\" accept=\"image/*\"></label><button disabled=\"\" class=\"_3541USjM\">Send</button></div></div></div><div class=\"_2TqPguCr\"><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"SVAp-s3A\"></div></div></div>"];
-		var element = document.getElementById('fritter');
-		var target;
-		paths.some(function (path, i) {
-			var match = (typeof path === 'string' && path === window.location.hash) || path && (typeof path === 'object' && path.match && new RegExp(path.match.join('|')).test(window.location.hash));
-			if (match) {
-				target = html[i];
-			}
-			return match;
-		});
-		if (target && element) {
-			var frag = document.createRange().createContextualFragment(target);
-			element.parentNode.replaceChild(frag, element);
-		}
-	}())
-</script><link rel="stylesheet" href="main.c3269faf7e71e87d94a7afab2aafbdec.bundle.css" media="none" onload="if(media!='all')media='all'" /><script type="text/javascript" src="runtime.d41d8cd98f00b204e980.bundle.js"></script><script type="text/javascript" src="main.d9eef74c5c91c477f93f.bundle.js"></script></body>
+	<div id="fritter" class="AeDG_PkH"><h1 class="jOBSbUYU">fritter.</h1><div class="_18R3RfJB"><div class="-yxvf-l1"><label><span>Message</span><textarea class="L_J5aB7q" placeholder="Enter a message" maxlength="100"></textarea></label><span>0/100</span><div><label class="_2lLH2Db6">+<input class="_1aIXGiDk" type="file" accept="image/*"></label><button disabled="" class="_3541USjM">Send</button></div></div></div><div class="_2TqPguCr"><div class="TSn68sPk"></div><div class="TSn68sPk"></div><div class="TSn68sPk"></div><div class="TSn68sPk"></div><div class="TSn68sPk"></div><div class="SVAp-s3A"></div></div></div>
+<link rel="stylesheet" href="main.c3269faf7e71e87d94a7afab2aafbdec.bundle.css" media="none" onload="if(media!='all')media='all'" /><script type="text/javascript" src="runtime.d41d8cd98f00b204e980.bundle.js"></script><script type="text/javascript" src="main.e0cf8815162eec0279e0.bundle.js"></script></body>
 </html>
