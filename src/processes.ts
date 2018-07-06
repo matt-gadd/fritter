@@ -1,5 +1,5 @@
 import { createProcess } from '@dojo/stores/process';
-import { replace, add } from '@dojo/stores/state/operations';
+import { replace } from '@dojo/stores/state/operations';
 import { createCommandFactory } from '@dojo/stores/process';
 import uuid from '@dojo/core/uuid';
 import {
@@ -115,7 +115,7 @@ export const addPost = createProcess<State, PostState>('add-post', [
 			];
 		}
 		return [
-			add(at(path('feed', 'posts'), posts.length), newPost)
+			replace(path('feed', 'posts'), [ newPost, ...posts ])
 		];
 	})
 ]);
