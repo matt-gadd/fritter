@@ -5,9 +5,16 @@
 }
 
 .label {
+	cursor: pointer;
+	position: fixed;
+	top: 0;
 	color: white;
 	font-family: "Quicksand", sans-serif;
-	margin: 0px;
+	margin: 0;
+	width: 100%;
+	background: #2f3238;
+	z-index: 1000;
+	text-align: center;
 }
 
 .fileLabel, .button {

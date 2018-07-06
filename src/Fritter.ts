@@ -7,7 +7,6 @@ import FeedContainer from './feed/FeedContainer';
 export class Fritter extends WidgetBase {
 	protected render() {
 		return v('div', { classes: css.root }, [
-			v('h1', { classes: css.label }, ['fritter.']),
 			w(HeaderContainer, {}),
 			w(FeedContainer, {})
 		]);
