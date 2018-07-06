@@ -34,13 +34,16 @@ export class Header extends WidgetBase<HeaderProperties> {
 		const isEnabled = imageUrl && message;
 		return v('div', { classes: css.root }, [
 			v('div', { classes: css.inputWrapper }, [
-				v('textarea', {
-					classes: css.input,
-					oninput: this._onMessageInput,
-					placeholder: 'Enter a message',
-					maxLength: this._maxChars,
-					value: message
-				}),
+				v('label', [
+					v('span', [ 'Message' ]),
+					v('textarea', {
+						classes: css.input,
+						oninput: this._onMessageInput,
+						placeholder: 'Enter a message',
+						maxLength: this._maxChars,
+						value: message
+					})
+				]),
 				imageUrl ? v('img', { classes: css.image, src: imageUrl }) : null,
 				v('span', [ `${message.length}/${this._maxChars}` ]),
 				v('div', [
