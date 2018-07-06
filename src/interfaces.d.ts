@@ -12,8 +12,19 @@ export interface MessageInputArguments {
 }
 
 export interface SubmitPostArguments {
+	id?: string;
 	message: string;
-	file: File;
+	imageUrl: string;
+}
+
+export interface FavPostArguments {
+	id: string;
+}
+
+export interface RetrySubmitArguments {
+	id: string;
+	message: string;
+	imageUrl: string;
 }
 
 export interface PostState {
@@ -23,6 +34,7 @@ export interface PostState {
 	imageUrl?: string;
 	id: string;
 	favCount: number;
+	hasFailed?: boolean;
 }
 
 export interface FeedState {

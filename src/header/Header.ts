@@ -12,15 +12,12 @@ interface HeaderProperties {
 }
 
 export class Header extends WidgetBase<HeaderProperties> {
-
-	private _file: File;
 	private _maxChars = 100;
 	private _scrollToTop = false;
 
 	private _onImageSelect(event: Event) {
 		const target = event.target as HTMLInputElement;
 		if (target.files && target.files.length) {
-			this._file = target.files[0];
 			this.properties.onSelectImage({ file: target.files[0] });
 		}
 	}
@@ -65,7 +62,7 @@ export class Header extends WidgetBase<HeaderProperties> {
 							disabled: !isEnabled,
 							classes: css.button,
 							onclick: () => {
-								post({ file: this._file, message });
+								imageUrl && post({ imageUrl, message });
 							}
 						}, ['Send'])
 					])

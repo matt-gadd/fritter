@@ -26,10 +26,26 @@
 .label {
 }
 
-.count {
+.fav {
+	right: 10px;
 	position: absolute;
-	right: 0px;
-	margin: 10px;
+	border: 1px solid white;
+	padding: 2px;
+	top: 15px;
+	border-radius: 3px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.heart {
+	margin-left: 5px;
+	font-size: 18px;
+	color: gold;
+}
+
+.count {
+	margin-left: 5px;
+	margin-right: 5px;
 	color: white;
 }
 

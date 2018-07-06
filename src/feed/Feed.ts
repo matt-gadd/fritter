@@ -6,7 +6,8 @@ import Intersection from '@dojo/widget-core/meta/Intersection';
 
 import * as css from './feed.m.css';
 import Post from '../post/Post';
-import { PostState, FetchPostsArguments } from '../interfaces';
+import { PostState, FetchPostsArguments, FavPostArguments, SubmitPostArguments } from '../interfaces';
+import { DNode } from '@dojo/widget-core/interfaces';
 
 interface FeedProperties {
 	isLoading: boolean;
@@ -14,6 +15,8 @@ interface FeedProperties {
 	total: number;
 	size: number;
 	fetch(args: FetchPostsArguments): void;
+	retryPost(args: SubmitPostArguments): void;
+	favPost(args: FavPostArguments): void;
 }
 
 export class Feed extends WidgetBase<FeedProperties> {
@@ -43,13 +46,11 @@ export class Feed extends WidgetBase<FeedProperties> {
 	}
 
 	protected render() {
-		let { fetch, postsPayload, size, total } = this.properties;
+		let { fetch, postsPayload, size, total, retryPost, favPost } = this.properties;
 		postsPayload = postsPayload || [];
-
 		const { isIntersecting } = this.meta(Intersection).get('bottom');
-
-		const posts = postsPayload.map(({ message, highQualityUrl, lowQualityUrl, favCount }, key) => {
-			return w(Post, { key, message, highQualityUrl, lowQualityUrl, favCount })
+		const posts: DNode[] = postsPayload.map(({ id, message, highQualityUrl, lowQualityUrl, favCount, hasFailed }, key) => {
+			return w(Post, { id, key, message, highQualityUrl, lowQualityUrl, favCount, hasFailed, retry: retryPost, fav: favPost })
 		});
 
 		if (this._isLoading) {

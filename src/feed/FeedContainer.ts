@@ -1,6 +1,6 @@
 import { StoreContainer } from '@dojo/stores/StoreInjector';
 import Feed from './Feed';
-import { fetchPosts } from '../processes';
+import { fetchPosts, retryPost, favPost } from '../processes';
 import { State } from '../interfaces';
 
 export default StoreContainer<State>(Feed, 'state', {
@@ -14,6 +14,8 @@ export default StoreContainer<State>(Feed, 'state', {
 			postsPayload: get(path('feed', 'posts')) || [],
 			total: get(path('feed', 'total')) || 5,
 			fetch: fetchPosts(store),
+			retryPost: retryPost(store),
+			favPost: favPost(store),
 			size: 30
 		}
 	}
