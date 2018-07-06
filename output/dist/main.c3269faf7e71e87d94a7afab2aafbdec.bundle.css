@@ -168,10 +168,29 @@ body {
 ._1NeadSFX {
 }
 
-._3hIrgAzs {
+._110B6KV4 {
+	right: 10px;
 	position: absolute;
-	right: 0px;
-	margin: 10px;
+	border: 1px solid white;
+	padding: 2px;
+	top: 15px;
+	border-radius: 3px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
+}
+
+.jtW2RDsq {
+	margin-left: 5px;
+	font-size: 18px;
+	color: gold;
+}
+
+._3hIrgAzs {
+	margin-left: 5px;
+	margin-right: 5px;
 	color: white;
 }
 
@@ -247,4 +266,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.a5f10f462cc7b6fd6517cb00d690afac.bundle.css.map*/
+/*# sourceMappingURL=main.c3269faf7e71e87d94a7afab2aafbdec.bundle.css.map*/
