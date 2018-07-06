@@ -168,6 +168,13 @@ body {
 ._1NeadSFX {
 }
 
+._3hIrgAzs {
+	position: absolute;
+	right: 0px;
+	margin: 10px;
+	color: white;
+}
+
 ._2DNskuDJ {
 	overflow: hidden;
 	margin: auto;
@@ -226,7 +233,7 @@ body {
 	background-color: black;
   }
   to {
-	background-color: #df4e4e;
+	background-color: black;
   }
 }
 
@@ -235,9 +242,9 @@ body {
 	background-color: black;
   }
   to {
-	background-color: #df4e4e;
+	background-color: black;
   }
 }
 
 
-/*# sourceMappingURL=main.355a4e7da4a3a39fbac1d8c3ba121857.bundle.css.map*/
+/*# sourceMappingURL=main.a5f10f462cc7b6fd6517cb00d690afac.bundle.css.map*/
