@@ -86,6 +86,12 @@ export const submitPost = createProcess<State, SubmitPostArguments>('fetch-feed'
 			replace(path('feed', 'posts'), [{ id, high_quality_url: image, low_quality_url: image, message }, ...posts])
 		];
 	}),
+	createCommand(({ get, path }) => {
+		return [
+			replace(path('post', 'message'), ''),
+			replace(path('post', 'imageUrl'), '')
+		];
+	}),
 	createCommand(async ({ get, path, payload: { file, message } }) => {
 		const id = get(path('post', 'id'));
 		const formData = new FormData();
@@ -94,22 +100,10 @@ export const submitPost = createProcess<State, SubmitPostArguments>('fetch-feed'
 		formData.append('image', file);
 		formData.append('id', id);
 
-		const response = await fetch('https://fritter-server.now.sh/messages/upload', {
+		await fetch('https://fritter-server.now.sh/messages/upload', {
 			method: 'POST',
 			body: formData
 		});
-
-		if (!response.ok) {
-			// TODO Mark as error
-			return [
-				replace(path('post', 'message'), ''),
-				replace(path('post', 'imageUrl'), '')
-			];
-		}
-
-		return [
-			replace(path('post', 'message'), ''),
-			replace(path('post', 'imageUrl'), '')
-		];
+		return [];
 	}),
 ]);

@@ -30,6 +30,7 @@ export class Header extends WidgetBase<HeaderProperties> {
 
 	protected render() {
 		const { post, imageUrl, message = '' } = this.properties;
+		const isEnabled = imageUrl && message;
 		return v('div', { classes: css.root }, [
 			v('div', { classes: css.inputWrapper }, [
 				v('textarea', {
@@ -44,7 +45,8 @@ export class Header extends WidgetBase<HeaderProperties> {
 						'+',
 						v('input', { classes: css.file, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
 					]),
-					v('label', {
+					v('button', {
+						disabled: !isEnabled,
 						classes: css.button,
 						onclick: () => {
 							post({ file: this._file, message });

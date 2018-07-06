@@ -58,3 +58,7 @@
 	float: right;
 }
 
+.button:disabled {
+	background: grey;
+}
+
