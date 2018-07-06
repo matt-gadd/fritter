@@ -83,7 +83,7 @@ export const submitPost = createProcess<State, SubmitPostArguments>('fetch-feed'
 
 		return [
 			replace(path('post', 'id'), id),
-			replace(path('feed', 'posts'), [{ id, high_quality_url: image, low_quality_url: image, message }, ...posts])
+			replace(path('feed', 'posts'), [{ id, highQuality_url: image, lowQuality_url: image, message }, ...posts])
 		];
 	}),
 	createCommand(({ get, path }) => {

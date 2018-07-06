@@ -48,8 +48,8 @@ export class Feed extends WidgetBase<FeedProperties> {
 
 		const { isIntersecting } = this.meta(Intersection).get('bottom');
 
-		const posts = postsPayload.map(({ message, high_quality_url, low_quality_url }, key) => {
-			return w(Post, { key, message, high_quality_url, low_quality_url })
+		const posts = postsPayload.map(({ message, highQualityUrl, lowQualityUrl, favCount }, key) => {
+			return w(Post, { key, message, highQualityUrl, lowQualityUrl, favCount })
 		});
 
 		if (this._isLoading) {

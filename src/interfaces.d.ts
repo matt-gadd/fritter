@@ -17,11 +17,12 @@ export interface SubmitPostArguments {
 }
 
 export interface PostState {
-	high_quality_url: string;
-	low_quality_url: string;
+	highQualityUrl: string;
+	lowQualityUrl: string;
 	message: string;
 	imageUrl?: string;
 	id: string;
+	favCount: number;
 }
 
 export interface FeedState {

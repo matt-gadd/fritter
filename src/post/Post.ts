@@ -5,19 +5,20 @@ import * as css from './post.m.css';
 
 interface PostProperties {
 	message: string;
-	high_quality_url?: string;
-	low_quality_url?: string;
+	highQualityUrl: string;
+	lowQualityUrl: string;
+	favCount: number;
 }
 
 export class Post extends WidgetBase<PostProperties> {
 	private _hasLoaded = false;
 
 	protected render() {
-		const { message, high_quality_url, low_quality_url} = this.properties;
+		const { message, highQualityUrl, lowQualityUrl, favCount } = this.properties;
 		const { isIntersecting } = this.meta(Intersection).get('root');
 		const footer = this.meta(Intersection).get('footer');
 
-		const src = isIntersecting || this._hasLoaded ? high_quality_url : low_quality_url;
+		const src = isIntersecting || this._hasLoaded ? highQualityUrl : lowQualityUrl;
 
 		if (isIntersecting && !this._hasLoaded) {
 			this._hasLoaded = true;
@@ -29,7 +30,8 @@ export class Post extends WidgetBase<PostProperties> {
 					v('img', { classes: [ css.image ], alt: message, src }),
 				]),
 				v('figcaption', { key: 'footer', classes: [ css.figCaption, footer.isIntersecting ? css.figCaptionActive : null ] }, [
-					v('span', { classes: [ css.header ] }, [ message ])
+					v('span', { classes: [ css.header ] }, [ message ]),
+					v('span', { classes: [ css.count ] }, [ `${favCount}` ])
 				])
 			])
 		]);

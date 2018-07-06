@@ -26,6 +26,13 @@
 .label {
 }
 
+.count {
+	position: absolute;
+	right: 0px;
+	margin: 10px;
+	color: white;
+}
+
 .container {
 	overflow: hidden;
 	margin: auto;
@@ -74,7 +81,7 @@
 	background-color: black;
   }
   to {
-	background-color: #df4e4e;
+	background-color: black;
   }
 }
 
