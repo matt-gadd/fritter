@@ -14,6 +14,7 @@ interface HeaderProperties {
 export class Header extends WidgetBase<HeaderProperties> {
 
 	private _file: File;
+	private _maxChars = 100;
 
 	private _onImageSelect(event: Event) {
 		const target = event.target as HTMLInputElement;
@@ -37,9 +38,11 @@ export class Header extends WidgetBase<HeaderProperties> {
 					classes: css.input,
 					oninput: this._onMessageInput,
 					placeholder: 'Enter a message',
+					maxLength: this._maxChars,
 					value: message
 				}),
 				imageUrl ? v('img', { classes: css.image, src: imageUrl }) : null,
+				v('span', [ `${message.length}/${this._maxChars}` ]),
 				v('div', [
 					v('label', { classes: css.fileLabel }, [
 						'+',
