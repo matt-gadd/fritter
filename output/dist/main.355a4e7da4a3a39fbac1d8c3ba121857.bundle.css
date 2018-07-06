@@ -15,7 +15,14 @@ body {
 	margin: 40px auto;
 }
 
-._2tIhxqC_ {
+._18R3RfJB {
+	width: 100%;
+	margin-top: -60px;
+	padding-top: 60px;
+}
+
+.jOBSbUYU {
+	cursor: pointer;
 	position: fixed;
 	top: 0;
 	color: white;
@@ -25,17 +32,6 @@ body {
 	background: #2f3238;
 	z-index: 1000;
 	text-align: center;
-}
-._18R3RfJB {
-	width: 100%;
-	margin-top: -60px;
-	padding-top: 60px;
-}
-
-.jOBSbUYU {
-	color: white;
-	font-family: "Quicksand", sans-serif;
-	margin: 0px;
 }
 
 ._2lLH2Db6, ._3541USjM {
@@ -244,4 +240,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.425b643ffb001f8323b15e83db05fd17.bundle.css.map*/
+/*# sourceMappingURL=main.355a4e7da4a3a39fbac1d8c3ba121857.bundle.css.map*/
