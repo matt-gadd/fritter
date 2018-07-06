@@ -38,7 +38,7 @@ body {
 
 ._2lLH2Db6, ._3541USjM {
     color: white;
-    background: #df4e4e;
+    background: black;
     width: 277px;
 	padding: 6px;
     cursor: pointer;
@@ -150,7 +150,7 @@ body {
 	overflow: hidden;
 	width: 290px;
 	height: 200px;
-	background-color: #df4e4e;
+	background-color: black;
 }
 
 @media (min-width: 480px) {
@@ -242,4 +242,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.0f1148eaa12e89cd5a9dc85dc3b89d09.bundle.css.map*/
+/*# sourceMappingURL=main.1d4b56a3e984d95a3e50c8455e85fcfb.bundle.css.map*/
