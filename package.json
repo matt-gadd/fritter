@@ -1,6 +1,7 @@
 {
   "name": "fritter",
   "version": "1.0.0",
+  "main": "src/main.ts",
   "dependencies": {
     "@dojo/core": "^2.0.0",
     "@dojo/has": "^2.0.0",
