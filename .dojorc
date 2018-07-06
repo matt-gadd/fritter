@@ -34,7 +34,7 @@
 					},
 					{
 						"urlPattern": "https://res.cloudinary.com",
-						"strategy": "networkFirst",
+						"strategy": "cacheFirst",
 						"expiration": {
 							"maxEntries": 25
 						}
