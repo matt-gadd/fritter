@@ -4,8 +4,6 @@
 	<title>fritter</title>
 	<meta name="theme-color" content="#222127">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <meta name="theme-color" content="#222127" /><link rel="manifest" href="manifest.a6e0c89f40c784609edffe5f469ec5e8.json" /><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><style>
 /*!
  * 
@@ -78,6 +76,9 @@ body {
 ._3541USjM {
   float: right;
 }
+._3541USjM:disabled {
+  background: grey;
+}
 .SVAp-s3A {
   height: 100px;
 }
@@ -142,7 +143,7 @@ body {
 <script>
 	(function () {
 		var paths = [""];
-		var html = ["<div id=\"fritter\" class=\"AeDG_PkH\"><h1 class=\"_2tIhxqC_\">fritter.</h1><div class=\"_18R3RfJB\"><div class=\"-yxvf-l1\"><textarea class=\"L_J5aB7q\" placeholder=\"Enter a message\"></textarea><div><label class=\"_2lLH2Db6\">+<input class=\"_1aIXGiDk\" type=\"file\" accept=\"image/*\"></label><label class=\"_3541USjM\">Send</label></div></div></div><div class=\"_2TqPguCr\"><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"SVAp-s3A\"></div></div></div>"];
+		var html = ["<div id=\"fritter\" class=\"AeDG_PkH\"><h1 class=\"_2tIhxqC_\">fritter.</h1><div class=\"_18R3RfJB\"><div class=\"-yxvf-l1\"><textarea class=\"L_J5aB7q\" placeholder=\"Enter a message\" maxlength=\"100\"></textarea><span>0/100</span><div><label class=\"_2lLH2Db6\">+<input class=\"_1aIXGiDk\" type=\"file\" accept=\"image/*\"></label><button disabled=\"\" class=\"_3541USjM\">Send</button></div></div></div><div class=\"_2TqPguCr\"><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"TSn68sPk\"></div><div class=\"SVAp-s3A\"></div></div></div>"];
 		var element = document.getElementById('fritter');
 		var target;
 		paths.some(function (path, i) {
@@ -157,5 +158,5 @@ body {
 			element.parentNode.replaceChild(frag, element);
 		}
 	}())
-</script><link rel="stylesheet" href="main.c3f3433066234d0465f56954a94bd063.bundle.css" media="none" onload="if(media!='all')media='all'" /><script type="text/javascript" src="runtime.d41d8cd98f00b204e980.bundle.js"></script><script type="text/javascript" src="main.d3b5cb8ddb0967b8fc94.bundle.js"></script></body>
+</script><link rel="stylesheet" href="main.0f1148eaa12e89cd5a9dc85dc3b89d09.bundle.css" media="none" onload="if(media!='all')media='all'" /><script type="text/javascript" src="runtime.d41d8cd98f00b204e980.bundle.js"></script><script type="text/javascript" src="main.83fa556b603633f79482.bundle.js"></script></body>
 </html>
