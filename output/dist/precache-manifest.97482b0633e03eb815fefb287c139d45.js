@@ -10,7 +10,7 @@ self.__precacheManifest = [
     "url": "main.1d4b56a3e984d95a3e50c8455e85fcfb.bundle.css"
   },
   {
-    "revision": "3daa9ee3a9bbe667c8b7d9153c519054",
+    "revision": "bcf3ffe15028704c2a1c3f65811a464e",
     "url": "index.html"
   },
   {
