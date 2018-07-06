@@ -15,7 +15,7 @@ importScripts("workbox-v3.3.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.3.1"});
 
 importScripts(
-  "precache-manifest.97482b0633e03eb815fefb287c139d45.js"
+  "precache-manifest.559a79b223351a59d9d8b354319cfc86.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "fritter"});
@@ -32,4 +32,4 @@ workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
 workbox.routing.registerRoute(/https:\/\/fritter-server.now.sh/, workbox.strategies.networkFirst(), 'GET');
-workbox.routing.registerRoute(/https:\/\/res.cloudinary.com/, workbox.strategies.networkFirst(), 'GET');
+workbox.routing.registerRoute(/https:\/\/res.cloudinary.com/, workbox.strategies.cacheFirst(), 'GET');
