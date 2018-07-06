@@ -1,5 +1,5 @@
 import { createProcess } from '@dojo/stores/process';
-import { replace } from '@dojo/stores/state/operations';
+import { replace, add } from '@dojo/stores/state/operations';
 import { createCommandFactory } from '@dojo/stores/process';
 import uuid from '@dojo/core/uuid';
 import {
@@ -109,8 +109,13 @@ export const addPost = createProcess<State, PostState>('add-post', [
 	createCommand(({ get, path, at, payload: newPost }) => {
 		let posts = get(path('feed', 'posts')) || [];
 		const index = findPostIndex(posts, newPost.id);
+		if (index !== -1) {
+			return [
+				replace(at(path('feed', 'posts'), index), newPost)
+			];
+		}
 		return [
-			replace(at(path('feed', 'posts'), index), newPost)
+			add(at(path('feed', 'posts'), posts.length), newPost)
 		];
 	})
 ]);
@@ -160,4 +165,4 @@ export const submitPost = createProcess<State, SubmitPostArguments>('fetch-feed'
 	submitPostCommand
 ]);
 
-export const retryPost = createProcess<State, RetrySubmitArguments>('retry-post', [ submitPostCommand ]);
+export const retryPost = createProcess<State, RetrySubmitArguments>('retry-post', [submitPostCommand]);
