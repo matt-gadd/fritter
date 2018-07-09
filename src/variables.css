@@ -1,0 +1,16 @@
+:root {
+	--background-color: #FCECC9;
+	--post-background-color: #445E93;
+	--button-background-color: #445E93;
+	--button-disabled-background-color: #8898BA;
+	--fav-background-color: #474647;
+	--fav-color: white;
+	--post-small-width: 290px;
+	--post-small-height: 200px;
+	--post-medium-width: 435px;
+	--post-medium-height: 300px;
+	--post-large-width: 580px;
+	--post-large-height: 400px;
+	--text-color: white;
+	--font-size: 18px;
+}

@@ -5,4 +5,5 @@ export const button: string;
 export const hidden: string;
 export const inputWrapper: string;
 export const input: string;
+export const charCount: string;
 export const image: string;

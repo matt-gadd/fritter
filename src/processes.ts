@@ -45,7 +45,8 @@ const submitPostCommand = createCommand<SubmitPostArguments>(async ({ get, path,
 
 	const response = await fetch('https://fritter-server.now.sh/messages/upload', {
 		method: 'POST',
-		body: formData
+		body: formData,
+		credentials: 'include'
 	});
 
 	if (!response.ok) {
@@ -89,7 +90,7 @@ export const messageInput = createProcess('message-input', [
 export const fetchPosts = createProcess<State, FetchPostsArguments>('fetch-feed', [
 	createCommand(async ({ get, path, payload: { offset } }) => {
 		const url = `https://fritter-server.now.sh/messages?offset=${offset}`;
-		const response = await fetch(`${url}`);
+		const response = await fetch(`${url}`, { credentials: 'include' });
 		const json: FeedState = await response.json();
 		const posts = get(path('feed', 'posts')) || [];
 		return [
@@ -128,7 +129,8 @@ export const favPost = createProcess('fav-post', [
 	}),
 	createCommand(async ({ get, path, payload: { id } }) => {
 		await fetch(`https://fritter-server.now.sh/messages/${id}/fav`, {
-			method: 'POST'
+			method: 'POST',
+			credentials: 'include'
 		});
 		return [];
 	})

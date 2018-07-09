@@ -10,7 +10,6 @@ import PlaceholderPost from './../post/PlaceholderPost';
 import { PostState, FetchPostsArguments, FavPostArguments, SubmitPostArguments } from '../interfaces';
 
 interface FeedProperties {
-	isLoading: boolean;
 	postsPayload: PostState[];
 	total: number;
 	size: number;
@@ -59,11 +58,11 @@ export class Feed extends WidgetBase<FeedProperties> {
 		}
 
 		return v('div',
-			{ classes: css.root },
+			{ classes: [ css.root ] },
 			[
 				...posts,
 				...(this._isLoading ? this._renderPlaceholders(postsPayload.length, size, total) : []),
-				v('div', { key: 'bottom', classes: css.bottom })
+				v('div', { key: 'bottom', classes: [ css.bottom ] })
 			]
 		);
 	}

@@ -31,40 +31,40 @@ export class Header extends WidgetBase<HeaderProperties> {
 		const { post, imageUrl, message = '' } = this.properties;
 		const isEnabled = imageUrl && message;
 		return [
-			v('h1', { classes: css.label, onclick: () => {
+			v('h1', { classes: [ css.label ], onclick: () => {
 				this._scrollToTop = true;
 				this.invalidate();
 			}}, ['fritter.']),
-			v('div', { classes: css.root, scrollIntoView: () => {
+			v('div', { classes: [ css.root ], scrollIntoView: () => {
 				const shouldScroll = this._scrollToTop;
 				this._scrollToTop = false;
 				return shouldScroll;
 			}}, [
-				v('div', { classes: css.inputWrapper }, [
+				v('div', { classes: [ css.inputWrapper ] }, [
 					v('label', [
-						v('span', { classes: css.hidden }, [ 'Message' ]),
+						v('span', { classes: [ css.hidden ] }, [ 'Message' ]),
 						v('textarea', {
-							classes: css.input,
+							classes: [ css.input ],
 							oninput: this._onMessageInput,
-							placeholder: 'Enter a message',
+							placeholder: 'Enter a caption',
 							maxLength: this._maxChars,
 							value: message
 						})
 					]),
-					imageUrl ? v('img', { classes: css.image, src: imageUrl }) : null,
-					v('span', [ `${message.length}/${this._maxChars}` ]),
+					v('span', { classes: [ css.charCount ]}, [ `${message.length}/${this._maxChars}` ]),
+					imageUrl ? v('img', { classes: [ css.image ], src: imageUrl }) : null,
 					v('div', [
-						v('label', { classes: css.fileLabel }, [
-							'+',
-							v('input', { classes: css.hidden, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
+						v('label', { classes: [ css.fileLabel ] }, [
+							'Add Image',
+							v('input', { classes: [ css.hidden ], type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
 						]),
 						v('button', {
 							disabled: !isEnabled,
-							classes: css.button,
+							classes: [ css.button ],
 							onclick: () => {
 								imageUrl && post({ imageUrl, message });
 							}
-						}, ['Send'])
+						}, ['Post It!'])
 					])
 				])
 			])

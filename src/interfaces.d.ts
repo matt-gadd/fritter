@@ -40,7 +40,6 @@ export interface PostState {
 export interface FeedState {
 	posts: PostState[];
 	total: number;
-	isLoading: boolean;
 }
 
 export interface State {

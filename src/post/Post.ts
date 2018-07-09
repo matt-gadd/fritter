@@ -33,14 +33,14 @@ export class Post extends WidgetBase<PostProperties> {
 		const { isIntersecting } = this.meta(Intersection).get('root');
 		const footer = this.meta(Intersection).get('footer');
 		const src = isIntersecting || this._hasLoaded ? highQualityUrl : lowQualityUrl;
-		const activeClass = (footer.isIntersecting || hasFailed) ? css.fooActive : null
+		const activeClass = (footer.isIntersecting || hasFailed) ? css.figCaptionActive : null
 
 		if (isIntersecting && !this._hasLoaded) {
 			this._hasLoaded = true;
 		}
 
-		return v('div', { key: 'root', classes: css.root }, [
-			v('figure', { classes: css.container }, [
+		return v('div', { key: 'root', classes: [ css.root ] }, [
+			v('figure', { classes: [ css.container ] }, [
 				v('div', { classes: [ css.foo, activeClass ] }, [
 					v('img', { classes: [ css.image ], alt: message, src }),
 				]),
@@ -49,7 +49,7 @@ export class Post extends WidgetBase<PostProperties> {
 				: v('figcaption', { key: 'footer', classes: [ css.figCaption, activeClass ] }, [
 					v('span', { key: 'header', classes: [ css.header ] }, [ message, hasFailed ? 'FAIL' : '' ]),
 					v('span', { key: 'fav', onclick: this._onFavClick, classes: [ css.fav ] }, [
-						v('span', { classes: [ css.heart ] }, [ '\u2605' ]),
+						v('span', { classes: [ css.star ] }, [ '\u2605' ]),
 						v('span', { classes: [ css.count ] }, [ `${favCount}` ])
 					])
 				])
