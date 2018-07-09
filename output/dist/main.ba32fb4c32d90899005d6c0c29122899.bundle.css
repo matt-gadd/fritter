@@ -174,10 +174,10 @@ body {
 }
 
 ._3mJmxWpK {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 100%;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: -webkit-transform 0.3s;
@@ -185,6 +185,48 @@ body {
 	transition: transform 0.3s, -webkit-transform 0.3s;
 	-webkit-transition-delay: 0.3s;
 	        transition-delay: 0.3s;
+}
+
+.B5M3D_dy {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	transition: transform 0.3s, -webkit-transform 0.3s;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
+}
+
+._3IHo2o3Y {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.B5M3D_dy::before {
+	position: absolute;
+	background: rgba(255, 0, 0, .3);
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	border: 2px solid #fff;
+	-webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, .2);
+	        box-shadow: 0 0 0 30px rgba(255, 255, 255, .2);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
+	-webkit-transform: scale3d(1.4,1.4,1);
+	        transform: scale3d(1.4,1.4,1);
 }
 
 ._3mJmxWpK::before {
@@ -232,15 +274,15 @@ body {
 	-webkit-box-align: center;
 	    -ms-flex-align: center;
 	        align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
 }
 
 .he8AD9lk {
 	color: white;
 	text-align: center;
-    font-size: 18px;
+	font-size: 18px;
 }
 
 @media (min-width: 480px) {
@@ -263,6 +305,17 @@ body {
 }
 
 ._7Fh66oT3 {
+	background-color: rgba(58, 52, 42, 0);
+	opacity: 1;
+}
+
+.PE1wwCi7::before {
+	opacity: 1;
+    -webkit-transform: scale3d(1,1,1);
+            transform: scale3d(1,1,1);
+}
+
+.PE1wwCi7 {
 	background-color: rgba(58, 52, 42, 0);
 	opacity: 1;
 }
@@ -331,4 +384,4 @@ body {
 	}
   }
 
-/*# sourceMappingURL=main.754059bf7745b71f74c7517b6c74293b.bundle.css.map*/
+/*# sourceMappingURL=main.ba32fb4c32d90899005d6c0c29122899.bundle.css.map*/
