@@ -1,14 +1,14 @@
 import WidgetBase from '@dojo/widget-core/WidgetBase';
 import { v } from '@dojo/widget-core/d';
 import * as css from './header.m.css';
-import { SubmitPostArguments, SelectImageArguments, MessageInputArguments } from '../interfaces';
+import { SubmitPostArguments, SelectImageArguments, CaptionInputArguments } from '../interfaces';
 
 interface HeaderProperties {
 	post(args: SubmitPostArguments): void;
 	onSelectImage(args: SelectImageArguments): void;
-	onMessageInput(args: MessageInputArguments): void;
+	onCaptionInput(args: CaptionInputArguments): void;
 	imageUrl?: string;
-	message?: string;
+	caption?: string;
 }
 
 export class Header extends WidgetBase<HeaderProperties> {
@@ -22,14 +22,14 @@ export class Header extends WidgetBase<HeaderProperties> {
 		}
 	}
 
-	private _onMessageInput(event: Event) {
+	private _onCaptionInput(event: Event) {
 		const target = event.target as HTMLInputElement;
-		this.properties.onMessageInput({ message: target.value });
+		this.properties.onCaptionInput({ caption: target.value });
 	}
 
 	protected render() {
-		const { post, imageUrl, message = '' } = this.properties;
-		const isEnabled = imageUrl && message;
+		const { post, imageUrl, caption = '' } = this.properties;
+		const isEnabled = imageUrl && caption;
 		return [
 			v('h1', { classes: [ css.label ], onclick: () => {
 				this._scrollToTop = true;
@@ -42,16 +42,16 @@ export class Header extends WidgetBase<HeaderProperties> {
 			}}, [
 				v('div', { classes: [ css.inputWrapper ] }, [
 					v('label', [
-						v('span', { classes: [ css.hidden ] }, [ 'Message' ]),
+						v('span', { classes: [ css.hidden ] }, [ 'Caption' ]),
 						v('textarea', {
 							classes: [ css.input ],
-							oninput: this._onMessageInput,
+							oninput: this._onCaptionInput,
 							placeholder: 'Enter a caption',
 							maxLength: this._maxChars,
-							value: message
+							value: caption
 						})
 					]),
-					v('span', { classes: [ css.charCount ]}, [ `${message.length}/${this._maxChars}` ]),
+					v('span', { classes: [ css.charCount ]}, [ `${caption.length}/${this._maxChars}` ]),
 					imageUrl ? v('img', { classes: [ css.image ], src: imageUrl }) : null,
 					v('div', [
 						v('label', { classes: [ css.fileLabel ] }, [
@@ -62,7 +62,7 @@ export class Header extends WidgetBase<HeaderProperties> {
 							disabled: !isEnabled,
 							classes: [ css.button ],
 							onclick: () => {
-								imageUrl && post({ imageUrl, message });
+								imageUrl && post({ imageUrl, caption });
 							}
 						}, ['Post It!'])
 					])

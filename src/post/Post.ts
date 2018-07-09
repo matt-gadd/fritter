@@ -5,7 +5,7 @@ import * as css from './post.m.css';
 import { SubmitPostArguments, FavPostArguments } from '../interfaces';
 
 interface PostProperties {
-	message: string;
+	caption: string;
 	highQualityUrl: string;
 	lowQualityUrl: string;
 	favCount: number;
@@ -24,36 +24,43 @@ export class Post extends WidgetBase<PostProperties> {
 	}
 
 	private _onRetryClick() {
-		const { id, message, lowQualityUrl, retry } = this.properties;
-		retry({ id, message, imageUrl: lowQualityUrl });
+		const { id, caption, lowQualityUrl, retry } = this.properties;
+		retry({ id, caption, imageUrl: lowQualityUrl });
 	}
 
 	protected render() {
-		const { message, highQualityUrl, lowQualityUrl, favCount, hasFailed } = this.properties;
+		const { caption, highQualityUrl, lowQualityUrl, favCount, hasFailed } = this.properties;
 		const { isIntersecting } = this.meta(Intersection).get('root');
 		const footer = this.meta(Intersection).get('footer');
 		const src = isIntersecting || this._hasLoaded ? highQualityUrl : lowQualityUrl;
-		const isActive = footer.isIntersecting || hasFailed;
+		const isActive = footer.isIntersecting;
 
 		if (isIntersecting && !this._hasLoaded) {
 			this._hasLoaded = true;
 		}
 
-		return v('div', { key: 'root', classes: [ css.root ] }, [
-			v('figure', { classes: [ css.container ] }, [
-				v('div', { classes: [ css.imageContainer ] }, [
-					v('img', { classes: [ css.image ], alt: message, src }),
+		return v('div', { key: 'root', classes: [css.root] }, [
+			v('figure', { classes: [css.container] }, [
+				v('div', { classes: [css.imageContainer] }, [
+					v('img', { classes: [css.image], alt: caption, src }),
 				]),
-				hasFailed
-				? v('button', { classes: [ ], onclick: this._onRetryClick }, ['\u21BB'])
-				: v('figcaption', { key: 'footer', classes: [ css.figCaption, isActive ? css.figCaptionActive : null ] }, [
-					v('div', { classes: [ css.textContainer, isActive ? css.textContainerActive : null ]}, [
-						v('div', { key: 'header', classes: [ css.header ] }, [ message ]),
-						v('div', { key: 'star', onclick: this._onFavClick, classes: [ css.starContainer ] }, [
-							v('span', { classes: [ css.star ] }, [ '\u2605' ]),
-							v('span', { classes: [ css.count ] }, [ `${favCount}` ])
+				v('figcaption', {
+					key: 'footer',
+					classes: [
+						hasFailed ? css.failed : css.figCaption,
+						isActive ? css.figCaptionActive : null,
+						hasFailed ? css.failedActive : null
+					]
+				 }, [
+					hasFailed
+						? v('button', { classes: [ css.retryButton ], onclick: this._onRetryClick }, ['\u21BB'])
+						: v('div', { classes: [css.textContainer, isActive ? css.textContainerActive : null] }, [
+							v('div', { key: 'header', classes: [css.header] }, [caption]),
+							v('div', { key: 'star', onclick: this._onFavClick, classes: [css.starContainer] }, [
+								v('span', { classes: [css.star] }, ['\u2605']),
+								v('span', { classes: [css.count] }, [`${favCount}`])
+							])
 						])
-					])
 				])
 			])
 		]);

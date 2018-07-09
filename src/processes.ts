@@ -8,7 +8,7 @@ import {
 	FetchPostsArguments,
 	PostState,
 	SelectImageArguments,
-	MessageInputArguments,
+	CaptionInputArguments,
 	SubmitPostArguments,
 	RetrySubmitArguments
 } from './interfaces';
@@ -27,7 +27,7 @@ function findPostIndex(posts: PostState[], id: string) {
 	return postIndex;
 }
 
-const submitPostCommand = createCommand<SubmitPostArguments>(async ({ get, path, at, payload: { id, imageUrl, message } }) => {
+const submitPostCommand = createCommand<SubmitPostArguments>(async ({ get, path, at, payload: { id, imageUrl, caption } }) => {
 	id = id || get(path('post', 'id'));
 	const posts = get(path('feed', 'posts')) || [];
 	const index = findPostIndex(posts, id);
@@ -39,7 +39,7 @@ const submitPostCommand = createCommand<SubmitPostArguments>(async ({ get, path,
 	const buffer = await fileRes.arrayBuffer();
 	const file = new File([buffer], 'filename');
 
-	formData.append('message', message);
+	formData.append('caption', caption);
 	formData.append('image', file);
 	formData.append('id', id);
 
@@ -78,10 +78,10 @@ export const selectImage = createProcess('select-image', [
 	})
 ]);
 
-export const messageInput = createProcess('message-input', [
-	createCommand<MessageInputArguments>(({ get, path, payload }) => {
+export const captionInput = createProcess('caption-input', [
+	createCommand<CaptionInputArguments>(({ get, path, payload }) => {
 		return [
-			replace(path('post', 'message'), payload.message)
+			replace(path('post', 'caption'), payload.caption)
 		];
 	})
 ]);
@@ -142,17 +142,17 @@ export const submitPost = createProcess<State, SubmitPostArguments>('fetch-feed'
 	createCommand(({ get, path }) => {
 		const posts = get(path('feed', 'posts')) || [];
 		const image = get(path('post', 'imageUrl'));
-		const message = get(path('post', 'message'));
+		const caption = get(path('post', 'caption'));
 		const id = uuid();
 
 		return [
 			replace(path('post', 'id'), id),
-			replace(path('feed', 'posts'), [{ id, highQualityUrl: image, lowQualityUrl: image, favCount: 0, message }, ...posts])
+			replace(path('feed', 'posts'), [{ id, highQualityUrl: image, lowQualityUrl: image, favCount: 0, caption }, ...posts])
 		];
 	}),
 	createCommand(({ get, path }) => {
 		return [
-			replace(path('post', 'message'), ''),
+			replace(path('post', 'caption'), ''),
 			replace(path('post', 'imageUrl'), '')
 		];
 	}),

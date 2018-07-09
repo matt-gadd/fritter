@@ -56,13 +56,45 @@
 }
 
 .figCaption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	height: 100%;
 	transition: transform 0.3s;
 	transition-delay: 0.3s;
+}
+
+.failed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.3s;
+	transition-delay: 0.3s;
+}
+
+.retryButton {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.failed::before {
+	position: absolute;
+	background: rgba(255,0,0,0.3);
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 30px rgba(255,255,255,0.2);
+	content: '';
+	opacity: 0;
+	transition: opacity 0.35s, transform 0.35s;
+	transition-delay: 0.3s;
+	transform: scale3d(1.4,1.4,1);
 }
 
 .figCaption::before {
@@ -93,13 +125,13 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-    justify-content: center;
+	justify-content: center;
 }
 
 .header {
 	color: var(--text-color);
 	text-align: center;
-    font-size: 18px;
+	font-size: 18px;
 }
 
 @media (min-width: 480px) {
@@ -120,6 +152,16 @@
 }
 
 .figCaptionActive {
+	background-color: rgba(58,52,42,0);
+	opacity: 1;
+}
+
+.failedActive::before {
+	opacity: 1;
+    transform: scale3d(1,1,1);
+}
+
+.failedActive {
 	background-color: rgba(58,52,42,0);
 	opacity: 1;
 }
