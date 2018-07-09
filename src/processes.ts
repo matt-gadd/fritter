@@ -87,11 +87,6 @@ export const messageInput = createProcess('message-input', [
 ]);
 
 export const fetchPosts = createProcess<State, FetchPostsArguments>('fetch-feed', [
-	createCommand(({ path }) => {
-		return [
-			replace(path('feed', 'isLoading'), true),
-		];
-	}),
 	createCommand(async ({ get, path, payload: { offset } }) => {
 		const url = `https://fritter-server.now.sh/messages?offset=${offset}`;
 		const response = await fetch(`${url}`);
@@ -99,8 +94,7 @@ export const fetchPosts = createProcess<State, FetchPostsArguments>('fetch-feed'
 		const posts = get(path('feed', 'posts')) || [];
 		return [
 			replace(path('feed', 'posts'), [...posts, ...json.posts]),
-			replace(path('feed', 'total'), json.total),
-			replace(path('feed', 'isLoading'), false)
+			replace(path('feed', 'total'), json.total)
 		];
 	}),
 ]);
