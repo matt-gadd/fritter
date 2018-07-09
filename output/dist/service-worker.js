@@ -15,7 +15,7 @@ importScripts("workbox-v3.3.1/workbox-sw.js");
 workbox.setConfig({modulePathPrefix: "workbox-v3.3.1"});
 
 importScripts(
-  "precache-manifest.a5bbc44cc1ef01c24fc42c179bd7fb16.js"
+  "precache-manifest.1d47f8e084e006b642e0aa16a5f42fdb.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "fritter"});
