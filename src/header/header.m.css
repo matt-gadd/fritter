@@ -20,14 +20,16 @@
 .fileLabel, .button {
     color: white;
     background: black;
-    width: 277px;
+    width: 290px;
 	padding: 6px;
     cursor: pointer;
     display: inline-block;
 	text-align: center;
+	box-sizing: border-box;
+	height: 30px;
 }
 
-.file {
+.hidden {
 	display: none;
 	height: 0.1px;
 	opacity: 0;

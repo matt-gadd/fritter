@@ -42,7 +42,7 @@ export class Header extends WidgetBase<HeaderProperties> {
 			}}, [
 				v('div', { classes: css.inputWrapper }, [
 					v('label', [
-						v('span', [ 'Message' ]),
+						v('span', { classes: css.hidden }, [ 'Message' ]),
 						v('textarea', {
 							classes: css.input,
 							oninput: this._onMessageInput,
@@ -56,7 +56,7 @@ export class Header extends WidgetBase<HeaderProperties> {
 					v('div', [
 						v('label', { classes: css.fileLabel }, [
 							'+',
-							v('input', { classes: css.file, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
+							v('input', { classes: css.hidden, type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
 						]),
 						v('button', {
 							disabled: !isEnabled,
