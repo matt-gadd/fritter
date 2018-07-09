@@ -50,12 +50,15 @@ body {
 }
 
 .dkpKLFQG {
-	display: none;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
 }
 
 .-yxvf-l1 {
@@ -284,4 +287,4 @@ body {
 	}
   }
 
-/*# sourceMappingURL=main.da11e862b49a321f061fe2a93e90b112.bundle.css.map*/
+/*# sourceMappingURL=main.8120dcf6eeffb7dbb0cf25cbe99f0ffb.bundle.css.map*/
