@@ -37,14 +37,17 @@ body {
 ._2lLH2Db6, ._3541USjM {
     color: white;
     background: black;
-    width: 277px;
+    width: 290px;
 	padding: 6px;
     cursor: pointer;
     display: inline-block;
 	text-align: center;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+	height: 30px;
 }
 
-._1aIXGiDk {
+.dkpKLFQG {
 	display: none;
 	height: 0.1px;
 	opacity: 0;
@@ -266,4 +269,4 @@ body {
 }
 
 
-/*# sourceMappingURL=main.c3269faf7e71e87d94a7afab2aafbdec.bundle.css.map*/
+/*# sourceMappingURL=main.0e9fb01a97e25f72aa8ddaa02a0dad71.bundle.css.map*/
