@@ -1,5 +1,7 @@
 .root {
 	width: 100%;
+	max-width: 580px;
+	margin: auto;
 	margin-top: -60px;
 	padding-top: 60px;
 }
@@ -20,7 +22,7 @@
 .fileLabel, .button {
     color: white;
     background: black;
-    width: 290px;
+    width: 50%;
 	padding: 6px;
     cursor: pointer;
     display: inline-block;
@@ -44,7 +46,7 @@
 	border-radius: 3px;
 	height: 115px;
 	margin: auto;
-	width: 580px;
+	width: 100%;
 }
 
 .input {

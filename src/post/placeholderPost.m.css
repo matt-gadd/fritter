@@ -1,0 +1,33 @@
+.root {
+	position: relative;
+	display: block;
+	animation: fadein 1s;
+	margin: 10px auto;
+	overflow: hidden;
+	background: black;
+	width: 290px;
+	height: 200px;
+}
+
+@media (min-width: 480px) {
+	.root {
+		width: 435px;
+		height: 300px;
+	}
+}
+
+@media (min-width: 680px) {
+	.root {
+		width: 580px;
+		height: 400px;
+	}
+}
+
+@keyframes fadein {
+	from {
+	  opacity: 0;
+	}
+	to {
+	  opacity: 1;
+	}
+  }

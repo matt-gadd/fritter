@@ -6,8 +6,8 @@ import Intersection from '@dojo/widget-core/meta/Intersection';
 
 import * as css from './feed.m.css';
 import Post from '../post/Post';
+import PlaceholderPost from './../post/PlaceholderPost';
 import { PostState, FetchPostsArguments, FavPostArguments, SubmitPostArguments } from '../interfaces';
-import { DNode } from '@dojo/widget-core/interfaces';
 
 interface FeedProperties {
 	isLoading: boolean;
@@ -39,7 +39,7 @@ export class Feed extends WidgetBase<FeedProperties> {
 		const end = Math.min(total, start + size);
 		for (let i = start; i < end; i++) {
 			placeholders.push(
-				v('div', { key: i, classes: [ css.placeholder ] })
+				w(PlaceholderPost, { key: i })
 			)
 		}
 		return placeholders;
@@ -49,13 +49,9 @@ export class Feed extends WidgetBase<FeedProperties> {
 		let { fetch, postsPayload, size, total, retryPost, favPost } = this.properties;
 		postsPayload = postsPayload || [];
 		const { isIntersecting } = this.meta(Intersection).get('bottom');
-		const posts: DNode[] = postsPayload.map(({ id, message, highQualityUrl, lowQualityUrl, favCount, hasFailed }, key) => {
+		const posts = postsPayload.map(({ id, message, highQualityUrl, lowQualityUrl, favCount, hasFailed }, key) => {
 			return w(Post, { id, key, message, highQualityUrl, lowQualityUrl, favCount, hasFailed, retry: retryPost, fav: favPost })
 		});
-
-		if (this._isLoading) {
-			posts.push(...this._renderPlaceholders(postsPayload.length, size, total));
-		}
 
 		if (isIntersecting && !this._isLoading && postsPayload.length < total) {
 			this._isLoading = true;
@@ -66,6 +62,7 @@ export class Feed extends WidgetBase<FeedProperties> {
 			{ classes: css.root },
 			[
 				...posts,
+				...(this._isLoading ? this._renderPlaceholders(postsPayload.length, size, total) : []),
 				v('div', { key: 'bottom', classes: css.bottom })
 			]
 		);

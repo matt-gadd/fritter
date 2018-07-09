@@ -86,10 +86,24 @@
 }
 
 .image {
-	height: 400px;
-	width: 580px;
+	width: 290px;
+	height: 200px;
 	display: block;
 	margin: auto;
+}
+
+@media (min-width: 480px) {
+	.image {
+		width: 435px;
+		height: 300px;
+	}
+}
+
+@media (min-width: 680px) {
+	.image {
+		width: 580px;
+		height: 400px;
+	}
 }
 
 @keyframes colorin {
