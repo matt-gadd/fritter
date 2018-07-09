@@ -31,7 +31,7 @@ export class Post extends WidgetBase<PostProperties> {
 	protected render() {
 		const { caption, highQualityUrl, lowQualityUrl, favCount, hasFailed } = this.properties;
 		const { isIntersecting } = this.meta(Intersection).get('root');
-		const footer = this.meta(Intersection).get('footer');
+		const footer = this.meta(Intersection).get('caption');
 		const src = isIntersecting || this._hasLoaded ? highQualityUrl : lowQualityUrl;
 		const isActive = footer.isIntersecting;
 
@@ -45,7 +45,7 @@ export class Post extends WidgetBase<PostProperties> {
 					v('img', { classes: [css.image], alt: caption, src }),
 				]),
 				v('figcaption', {
-					key: 'footer',
+					key: 'caption',
 					classes: [
 						hasFailed ? css.failed : css.figCaption,
 						isActive ? css.figCaptionActive : null,
