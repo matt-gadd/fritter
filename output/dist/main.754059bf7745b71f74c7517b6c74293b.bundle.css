@@ -118,8 +118,6 @@ body {
 	overflow: hidden;
 	width: 290px;
 	height: 200px;
-
-	/* background: var(--post-background-color); */
 }
 
 @media (min-width: 480px) {
@@ -138,10 +136,8 @@ body {
 
 ._3Z4WGo3N {
 	position: absolute;
-	top: 10px;
-	right: 10px;
-	bottom: 10px;
-	margin: 10px;
+	top: 0;
+	right: 0;
 	cursor: pointer;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
@@ -172,8 +168,8 @@ body {
 	transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 	transition: transform 0.3s, -webkit-transform 0.3s;
-	-webkit-transition-delay: 0.2s;
-	        transition-delay: 0.2s;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
 	background: black;
 }
 
@@ -183,13 +179,12 @@ body {
     left: 0;
     width: 100%;
 	height: 100%;
-	/* opacity: 0; */
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 	transition: transform 0.3s, -webkit-transform 0.3s;
-	-webkit-transition-delay: 0.2s;
-	        transition-delay: 0.2s;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
 }
 
 ._3mJmxWpK::before {
@@ -208,15 +203,19 @@ body {
 	transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
 	-webkit-transform: scale3d(1.4,1.4,1);
 	        transform: scale3d(1.4,1.4,1);
 }
 
-._3Qp2EHMT {
+.CkDmE5GS {
 	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, -webkit-transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s;
 	transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+	-webkit-transition-delay: 0.3s;
+	        transition-delay: 0.3s;
 	opacity: 0;
 	position: absolute;
 	top: 30px;
@@ -238,22 +237,19 @@ body {
             justify-content: center;
 }
 
-.he8AD9lk::before {
-	opacity: 0;
-	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, -webkit-transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s;
-	transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
-	-webkit-transform: scale3d(1.4,1.4,1);
-	        transform: scale3d(1.4,1.4,1);
-}
-
 .he8AD9lk {
 	color: white;
-	font-size: 15px;
+	text-align: center;
+    font-size: 18px;
 }
 
-._1aC19-eF {
+@media (min-width: 480px) {
+	.he8AD9lk {
+		font-size: 24px;
+	}
+}
+
+._37zcREfW {
 	background-color: rgba(58, 52, 42, 0);
 	-webkit-transform: scale3d(1,1,1);
 	        transform: scale3d(1,1,1);
@@ -335,4 +331,4 @@ body {
 	}
   }
 
-/*# sourceMappingURL=main.0df70cec2613290ab27b63de6791e536.bundle.css.map*/
+/*# sourceMappingURL=main.754059bf7745b71f74c7517b6c74293b.bundle.css.map*/
