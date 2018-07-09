@@ -7,7 +7,8 @@
 	overflow: hidden;
 	width: var(--post-small-width);
 	height: var(--post-small-height);
-	background: var(--post-background-color);
+
+	/* background: var(--post-background-color); */
 }
 
 @media (min-width: 480px) {
@@ -24,12 +25,12 @@
 	}
 }
 
-.fav {
-	right: 10px;
+.starContainer {
 	position: absolute;
-	padding: 2px;
-	top: 15px;
-	border-radius: 3px;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	margin: 10px;
 	cursor: pointer;
 	user-select: none;
 }
@@ -48,9 +49,10 @@
 .container {
 	overflow: hidden;
 	margin: auto;
+	background: #030c17;
 }
 
-.foo {
+.imageContainer {
 	overflow: hidden;
 	transition: transform 0.3s;
 	transition-delay: 0.2s;
@@ -58,23 +60,70 @@
 }
 
 .figCaption {
-	text-align: center;
     position: absolute;
-	width: 100%;
-    top: auto;
-    height: 60px;
+    top: 0;
+    left: 0;
+    width: 100%;
+	height: 100%;
+	/* opacity: 0; */
 	transition: transform 0.3s;
 	transition-delay: 0.2s;
 }
 
+.figCaption::before {
+	position: absolute;
+	background: rgba(1,1,1,0.3);
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 30px rgba(255,255,255,0.2);
+	content: '';
+	opacity: 0;
+	transition: opacity 0.35s, transform 0.35s;
+	transform: scale3d(1.4,1.4,1);
+}
+
+.text {
+	transition: opacity 0.35s, transform 0.35s;
+	opacity: 0;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    justify-content: center;
+}
+
+.header::before {
+	opacity: 0;
+	transition: opacity 0.35s, transform 0.35s;
+	transform: scale3d(1.4,1.4,1);
+}
+
 .header {
 	color: var(--text-color);
-	text-transform: none;
-	line-height: 60px;
+	font-size: 15px;
+}
+
+.headerActive {
+	background-color: rgba(58,52,42,0);
+	transform: scale3d(1,1,1);
+	opacity: 1;
+}
+
+.figCaptionActive::before {
+	opacity: 1;
+    transform: scale3d(1,1,1);
 }
 
 .figCaptionActive {
-	transform: translate3d(0,-60px,0);
+	background-color: rgba(58,52,42,0);
+	opacity: 1;
 }
 
 .image {
