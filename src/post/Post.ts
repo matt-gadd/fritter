@@ -47,7 +47,7 @@ export class Post extends WidgetBase<PostProperties> {
 				hasFailed
 				? v('button', { classes: [ ], onclick: this._onRetryClick }, ['\u21BB'])
 				: v('figcaption', { key: 'footer', classes: [ css.figCaption, isActive ? css.figCaptionActive : null ] }, [
-					v('div', { classes: [ css.text, isActive ? css.headerActive : null ]}, [
+					v('div', { classes: [ css.textContainer, isActive ? css.textContainerActive : null ]}, [
 						v('div', { key: 'header', classes: [ css.header ] }, [ message ]),
 						v('div', { key: 'star', onclick: this._onFavClick, classes: [ css.starContainer ] }, [
 							v('span', { classes: [ css.star ] }, [ '\u2605' ]),
