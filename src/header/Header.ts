@@ -31,43 +31,56 @@ export class Header extends WidgetBase<HeaderProperties> {
 		const { post, imageUrl, caption = '' } = this.properties;
 		const isEnabled = imageUrl && caption;
 		return [
-			v('h1', { classes: [ css.label ], onclick: () => {
+			v('h1', { classes: [css.title], onclick: () => {
 				this._scrollToTop = true;
 				this.invalidate();
 			}}, ['fritter.']),
-			v('div', { classes: [ css.root ], scrollIntoView: () => {
-				const shouldScroll = this._scrollToTop;
-				this._scrollToTop = false;
-				return shouldScroll;
-			}}, [
-				v('div', { classes: [ css.inputWrapper ] }, [
-					v('label', [
-						v('span', { classes: [ css.hidden ] }, [ 'Caption' ]),
-						v('textarea', {
-							classes: [ css.input ],
-							oninput: this._onCaptionInput,
-							placeholder: 'Enter a caption',
-							maxLength: this._maxChars,
-							value: caption
-						})
+			v('div', {
+				classes: [css.root],
+				scrollIntoView: () => {
+					const shouldScroll = this._scrollToTop;
+					this._scrollToTop = false;
+					return shouldScroll;
+				}
+			}, [
+				v('div', { classes: [css.inputWrapper] }, [
+					v('div', { classes: [css.top] }, [
+						v('label', { classes: [css.inputLabel] }, [
+							v('span', { classes: [css.hidden] }, ['Caption']),
+							v('textarea', {
+								classes: [css.input],
+								oninput: this._onCaptionInput,
+								placeholder: 'Enter a caption',
+								maxLength: this._maxChars,
+								value: caption
+							})
+						]),
+						imageUrl ? v('img', { classes: [css.image], src: imageUrl }) : null,
+						v('span', { classes: [css.charCount] }, [
+							`${caption.length}/${this._maxChars}`
+						])
 					]),
-					v('span', { classes: [ css.charCount ]}, [ `${caption.length}/${this._maxChars}` ]),
-					imageUrl ? v('img', { classes: [ css.image ], src: imageUrl }) : null,
-					v('div', [
-						v('label', { classes: [ css.fileLabel ] }, [
+					v('div', { classes: [css.bottom] }, [
+						v('label', { classes: [css.fileLabel] }, [
 							'Add Image',
-							v('input', { classes: [ css.hidden ], type: 'file', accept: 'image/*', onchange: this._onImageSelect }),
+							v('input', {
+								classes: [css.hidden],
+								type: 'file',
+								accept: 'image/*',
+								onchange: this._onImageSelect
+							})
 						]),
 						v('button', {
 							disabled: !isEnabled,
-							classes: [ css.button ],
+							classes: [css.button],
 							onclick: () => {
 								imageUrl && post({ imageUrl, caption });
 							}
 						}, ['Post It!'])
 					])
 				])
-			])
+			]
+			)
 		];
 	}
 }

@@ -39,31 +39,33 @@ export class Post extends WidgetBase<PostProperties> {
 			this._hasLoaded = true;
 		}
 
-		return v('div', { key: 'root', classes: [css.root] }, [
-			v('figure', { classes: [css.container] }, [
-				v('div', { classes: [css.imageContainer] }, [
-					v('img', { classes: [css.image], alt: caption, src }),
-				]),
-				v('figcaption', {
-					key: 'caption',
-					classes: [
-						hasFailed ? css.failed : css.figCaption,
-						isActive ? css.figCaptionActive : null,
-						hasFailed ? css.failedActive : null
-					]
-				 }, [
-					hasFailed
-						? v('button', { classes: [ css.retryButton ], onclick: this._onRetryClick }, ['\u21BB'])
-						: v('div', { classes: [css.textContainer, isActive ? css.textContainerActive : null] }, [
-							v('div', { key: 'header', classes: [css.header] }, [caption]),
-							v('div', { key: 'star', onclick: this._onFavClick, classes: [css.starContainer] }, [
-								v('span', { classes: [css.star] }, ['\u2605']),
-								v('span', { classes: [css.count] }, [`${favCount}`])
-							])
+		return v('div', {
+			key: 'root', classes: [
+				hasFailed ? css.failed : null,
+				isActive ? css.active : null,
+				css.root
+			]
+		}, [
+				v('figure', { classes: [css.container] }, [
+					v('div', { classes: [css.imageContainer] }, [
+						v('img', { classes: [css.image], alt: caption, src }),
+					]),
+					v('figcaption', {
+						key: 'caption',
+						classes: [css.figCaption]
+					}, [
+							hasFailed
+								? v('button', { classes: [css.retryButton], onclick: this._onRetryClick }, ['\u21BB'])
+								: v('div', { classes: [css.textContainer] }, [
+									v('div', { key: 'header', classes: [css.header] }, [caption]),
+									v('div', { key: 'star', onclick: this._onFavClick, classes: [css.starContainer] }, [
+										v('span', { classes: [css.star] }, ['\u2605']),
+										v('span', { classes: [css.count] }, [`${favCount}`])
+									])
+								])
 						])
 				])
-			])
-		]);
+			]);
 	}
 }
 

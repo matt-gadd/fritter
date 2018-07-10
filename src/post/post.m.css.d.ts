@@ -9,7 +9,5 @@ export const failed: string;
 export const retryButton: string;
 export const textContainer: string;
 export const header: string;
-export const textContainerActive: string;
-export const figCaptionActive: string;
-export const failedActive: string;
+export const active: string;
 export const image: string;
