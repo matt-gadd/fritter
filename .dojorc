@@ -13,11 +13,11 @@
 				"theme_color": "#222127",
 				"icons": [
 				{
-					"src": "src/img/hn.png",
+					"src": "src/img/dojo.png",
 					"sizes": [
 						128,
-					256,
-					512
+						256,
+						512
 					]
 				}
 				]
